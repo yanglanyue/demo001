@@ -1,0 +1,30 @@
+
+#server:
+#  port: 8080
+#spring:
+#  profiles:
+#    active: prod
+#---
+#server:
+#  port: 8081
+#spring:
+#  profiles: dev
+#---
+#server:
+#  port: 8082
+#spring:
+#  profiles: prod
+#
+#Person:
+#  name: 小明${random.uuid}
+#  sex: 男
+#  boss: true
+#  age: 25
+#  birth: 1992/8/8
+#  email: 583968622@qq.com
+#
+#  maps: {A: 1,B: 2,C: 3,D: 4,E: 5}
+#  list: [小强,小王,小刚,小杨,小李]
+#  dog:
+#    name: 旺财${person.name}
+#    age: 2

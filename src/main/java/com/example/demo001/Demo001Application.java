@@ -1,0 +1,60 @@
+package com.example.demo001;
+
+
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+//@ImportResource(locations = "classpath:beans.xml")
+@SpringBootApplication
+@Controller
+public class Demo001Application {
+
+	@RequestMapping("/")
+	@ResponseBody
+	public String go(){
+		return "你好，这是Spring Boot！";
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(Demo001Application.class, args);
+	}
+
+	/**
+	 * 用日志记录
+	 * LoggerFactory记录器工厂（切忌导错包！！！）
+	 * .getLogger()记录器
+	 * logger为记录器（切忌导错包！！！）
+	 */
+	Logger logger = LoggerFactory.getLogger(getClass());
+	@Autowired
+	@Test
+	public void contextLoads2(){
+		/*
+		 * 替换System.out.println();
+		 * 日志的级别由低到高
+		 * trace<debug<info<warn<error
+		 * 可以调整输出的日志级别，日志就只会在这个级别及更高级别的日志可以生效
+		 * spring boot默认输出info级别的日志
+		 *
+		 * 可在application.properties配置文件中设置对应的输出级别
+		 * logging.level.com.example.demo001.Demo001Application=trace
+		 * */
+		logger.trace("trace日志");
+		//调试
+		logger.debug("debug日志");
+		//info日志
+		//spring boot默认输出info级别的日志（root级别）
+		logger.info("info日志");
+		//警告
+		logger.warn("warn日志");
+		//错误
+		logger.error("error日志");
+	}
+}
